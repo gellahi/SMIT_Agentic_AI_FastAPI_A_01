@@ -65,15 +65,15 @@ def register_student(student: Student):
         raise HTTPException(status_code=422, detail=str(e))
 
 @router.put("/students/{student_id}/email")
-def update_email(student_id: int, email: str):
+def update_email(student_id: int, email_update: Student):
     try:
         if not 1000 < student_id < 9999:
             raise ValueError("Student ID must be between 1000 and 9999")
             
-        if "@" not in email:
+        if "@" not in email_update.email:
             raise ValueError("Invalid email format")
             
-        if not update_student_email(student_id, email):
+        if not update_student_email(student_id, email_update.email):
             raise HTTPException(status_code=404, detail="Student not found")
             
         return {"message": "Email updated successfully"}
