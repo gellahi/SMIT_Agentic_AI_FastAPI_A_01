@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "320822c2-4c1e-4290-a533-52f0ceba9a38",
+		"name": "University Registration API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40282364"
+	},
+	"item": [
+		{
+			"name": "Register Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"John Doe\", \"email\": \"john.doe@example.com\", \"age\": 20, \"courses\": [\"Mathematics\", \"Physics\", \"Chemistry\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/students/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"students",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/students/1001?include_grades=true&semester=Fall2024",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"students",
+						"1001"
+					],
+					"query": [
+						{
+							"key": "include_grades",
+							"value": "true"
+						},
+						{
+							"key": "semester",
+							"value": "Fall2024"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Email",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"new.email@example.com\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/students/1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"students",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
